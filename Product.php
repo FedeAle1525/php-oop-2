@@ -1,16 +1,19 @@
 <?php
-
-class Products
+require_once __DIR__ . '/./Category.php';
+class Product
 {
   protected string $name;
   protected string $desc;
   protected float $price;
+  protected Category $categ;
+
 
   // Costruttore
-  function __construct($_name, $_price)
+  function __construct($_name, $_price, $_categ)
   {
     $this->setName($_name);
     $this->setPrice($_price);
+    $this->categ = $_categ;
   }
 
   // SETTERS
@@ -20,7 +23,7 @@ class Products
     if (strlen($newVal) < 80) {
       $this->desc = $newVal;
     } else {
-      $this->desc = 'Descrizione troppo lunga';
+      echo 'Descrizione troppo lunga';
     }
   }
 
@@ -29,7 +32,7 @@ class Products
     if (strlen($newVal) < 50) {
       $this->name = $newVal;
     } else {
-      $this->name = 'Nome troppo lungo';
+      echo 'Nome troppo lungo';
     }
   }
 
@@ -38,7 +41,7 @@ class Products
     if ($newVal > 0) {
       $this->price = $newVal;
     } else {
-      $this->price = 'Inserire numero positivo';
+      echo 'Inserire numero positivo';
     }
   }
 

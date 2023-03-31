@@ -1,14 +1,31 @@
 <?php
 require_once __DIR__ . '/./Product.php';
 
-// Creo Istanza della Classe Product
-$prod1 = new Products('crocchette', 25.40);
+// Creo una Istanza di Category che identifica un Cane
+$dog = new Category('cane', 41.30);
+$dog->setBreed('volpino');
+$dog->setSize('small');
+// var_dump($categ1);
+
+// Creo una Istanza di Category che identifica un Gatto
+$cat = new Category('gatto', 46.70);
+$cat->setBreed('persiano');
+$cat->setSize('medium');
+// var_dump($cat);
+
+// Creo Istanze della Classe Product
+$prod1 = new Product('crocchette', 25.40, $dog);
 $prod1->setDesc('Crocchete vegetali con poche calorie e alto nutrimento proteico.');
-// var_dump($prod1);
+var_dump($prod1);
 // var_dump($prod1->getName());
 // var_dump($prod1->getDesc());
 // var_dump($prod1->getPrice());
 // var_dump($prod1->calcFinalPrice(10));
+
+$prod2 = new Product('pappa', 15.80, $cat);
+$prod2->setDesc('Pasto a base di tonno e verdure');
+var_dump($prod2);
+
 
 ?>
 
