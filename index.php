@@ -1,3 +1,19 @@
+<?php
+require_once __DIR__ . '/./Product.php';
+
+// Creo Istanza della Classe Product
+$prod1 = new Products('crocchette', 25.40);
+$prod1->setDesc('Crocchete vegetali con poche calorie e alto nutrimento proteico.');
+// var_dump($prod1);
+// var_dump($prod1->getName());
+// var_dump($prod1->getDesc());
+// var_dump($prod1->getPrice());
+// var_dump($prod1->calcFinalPrice(10));
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
