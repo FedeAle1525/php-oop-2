@@ -16,7 +16,7 @@ $cat->setSize('medium');
 // var_dump($cat);
 
 // Creo Istanze della Classe Product
-$prod1 = new Product('crocchette', 25.40, $dog);
+$prod1 = new Product('crocchette', -25.40, $dog);
 $prod1->setDesc('Crocchete vegetali con poche calorie e alto nutrimento proteico.');
 var_dump($prod1);
 // var_dump($prod1->getName());
@@ -29,10 +29,10 @@ $prod2->setDesc('Pasto a base di tonno e verdure');
 var_dump($prod2);
 
 // Creo Instanza della Classe Food (che estende Product)
-$food1 = new Food('bastoncini', 17.60, $dog, ['carne di manzo']);
+$food1 = new Food('bastoncini', 17.60, $dog, 'carne di manzo');
 $food1->setIngredients('carne di pollo');
 $food1->setIngredients('carote');
-$food1->setKal(110);
+$food1->setKal(-110);
 var_dump($food1);
 
 ?>

@@ -1,9 +1,13 @@
 <?php
 require_once __DIR__ . '/./Category.php';
+require_once __DIR__ . '/./traits/Validator.php';
 
 
 class Product
 {
+  // Utilizzo il Trait 'Validator'
+  use Validator;
+
   protected string $name;
   protected string $desc;
   protected float $price;
@@ -40,10 +44,10 @@ class Product
 
   public function setPrice(float $newVal)
   {
-    if ($newVal > 0) {
-      $this->price = $newVal;
+    if ($this->testNegativeNumber($newVal)) {
+      echo 'Product: Inserire un numero positivo';
     } else {
-      echo 'Inserire numero positivo';
+      $this->price = $newVal;
     }
   }
 

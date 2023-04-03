@@ -1,28 +1,33 @@
 <?php
 require_once __DIR__ . '/./Product.php';
+require_once __DIR__ . '/./traits/Validator.php';
 
 class Food extends Product
 {
+  // Utilizzo il Trait 'Validator'
+  use Validator;
+
   protected float $kal;
-  protected array $ingredients;
+  protected array $ingredients = [];
 
   // COSTRUTTORE
-  function __construct($_name, $_price, $_categ, $_ingredients)
+  function __construct($_name, $_price, $_categ, $_ingredient)
   {
 
     parent::__construct($_name, $_price, $_categ);
 
-    $this->setIngredients($_ingredients);
+    $this->setIngredients($_ingredient);
   }
 
   // SETTERS
 
   public function setKal(float $newVal)
   {
-    if ($newVal > 0) {
-      $this->kal = $newVal;
+    // Richiamo la Funzione che testa il nuovo valore, creata dentro Validator
+    if ($this->testNegativeNumber($newVal)) {
+      echo "Food: inserire un numero positivo";
     } else {
-      echo 'Inserire un numero positivo';
+      $this->kal = $newVal;
     }
   }
 
