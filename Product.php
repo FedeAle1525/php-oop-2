@@ -15,12 +15,12 @@ class Product
   {
     $this->setName($_name);
     $this->setPrice($_price);
-    $this->categ = $_categ;
+    $this->setCateg($_categ);
   }
 
   // SETTERS
 
-  public function setDesc($newVal)
+  public function setDesc(string $newVal)
   {
     if (strlen($newVal) < 80) {
       $this->desc = $newVal;
@@ -29,7 +29,7 @@ class Product
     }
   }
 
-  public function setName($newVal)
+  public function setName(string $newVal)
   {
     if (strlen($newVal) < 50) {
       $this->name = $newVal;
@@ -38,7 +38,7 @@ class Product
     }
   }
 
-  public function setPrice($newVal)
+  public function setPrice(float $newVal)
   {
     if ($newVal > 0) {
       $this->price = $newVal;
@@ -47,21 +47,31 @@ class Product
     }
   }
 
+  public function setCateg(Category $newVal)
+  {
+    $this->categ = $newVal;
+  }
+
   // GETTERS
 
-  public function getName()
+  public function getName(): string
   {
     return $this->name;
   }
 
-  public function getDesc()
+  public function getDesc(): string
   {
     return $this->desc;
   }
 
-  public function getPrice()
+  public function getPrice(): string
   {
     return $this->price;
+  }
+
+  public function getCateg(): Category
+  {
+    return $this->categ;
   }
 
   // METHODS

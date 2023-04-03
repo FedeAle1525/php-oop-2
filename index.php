@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/./Product.php';
 require_once __DIR__ . '/./Food.php';
+require_once __DIR__ . '/./Category.php';
 
 // Creo una Istanza di Category che identifica un Cane
 $dog = new Category('cane', 41.30);
@@ -27,6 +28,7 @@ $prod2 = new Product('pappa', 15.80, $cat);
 $prod2->setDesc('Pasto a base di tonno e verdure');
 var_dump($prod2);
 
+// Creo Instanza della Classe Food (che estende Product)
 $food1 = new Food('bastoncini', 17.60, $dog, ['carne di manzo']);
 $food1->setIngredients('carne di pollo');
 $food1->setIngredients('carote');

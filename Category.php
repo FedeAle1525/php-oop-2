@@ -20,7 +20,7 @@ class Category
 
   // SETTERS
 
-  public function setName($newVal)
+  public function setName(string $newVal)
   {
     if ($newVal === 'cane' || $newVal === 'gatto') {
       $this->name = $newVal;
@@ -29,7 +29,7 @@ class Category
     }
   }
 
-  public function setBreed($newVal)
+  public function setBreed(string $newVal)
   {
     if (strlen($newVal) < 50) {
       $this->breed = $newVal;
@@ -38,7 +38,7 @@ class Category
     }
   }
 
-  public function setSize($newVal)
+  public function setSize(string $newVal)
   {
     switch ($newVal) {
 
@@ -59,14 +59,14 @@ class Category
     }
   }
 
-  public function setWeight($newVal)
+  public function setWeight(float $newVal)
   {
     if ($newVal > 0) {
       $this->weight = $newVal;
     }
   }
 
-  public function setIcon($newVal)
+  public function setIcon(string $newVal)
   {
     if ($newVal === 'cane') {
       $this->icon = self::$icons[0];
@@ -79,23 +79,28 @@ class Category
 
   // GETTERS
 
-  public function getName()
+  public function getName(): string
   {
     return $this->name;
   }
 
-  public function getBreed()
+  public function getBreed(): string
   {
     return $this->breed;
   }
 
-  public function getSize()
+  public function getSize(): string
   {
     return $this->size;
   }
 
-  public function getWeight()
+  public function getWeight(): float
   {
     return $this->weight;
+  }
+
+  public function getIcon(): string
+  {
+    return $this->icon;
   }
 }

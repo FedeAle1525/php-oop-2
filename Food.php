@@ -12,12 +12,12 @@ class Food extends Product
 
     parent::__construct($_name, $_price, $_categ);
 
-    $this->ingredients = $_ingredients;
+    $this->setIngredients($_ingredients);
   }
 
   // SETTERS
 
-  public function setKal($newVal)
+  public function setKal(float $newVal)
   {
     if ($newVal > 0) {
       $this->kal = $newVal;
@@ -26,7 +26,7 @@ class Food extends Product
     }
   }
 
-  public function setIngredients($newVal)
+  public function setIngredients(string $newVal)
   {
     if ($newVal !== '') {
       array_push($this->ingredients, $newVal);
@@ -35,12 +35,12 @@ class Food extends Product
 
   // GETTERS
 
-  public function getKal()
+  public function getKal(): string
   {
     return $this->kal;
   }
 
-  public function getIngrediets()
+  public function getIngrediets(): array
   {
     return $this->ingredients;
   }
