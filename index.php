@@ -16,17 +16,17 @@ $cat->setSize('medium');
 // var_dump($cat);
 
 // Creo Istanze della Classe Product
-$prod1 = new Product('crocchette', 25.40, $dog);
-$prod1->setDesc('Crocchete vegetali con poche calorie e alto nutrimento proteico.');
-var_dump($prod1);
+// $prod1 = new Product('crocchette', 25.40, $dog);
+// $prod1->setDesc('Crocchete vegetali con poche calorie e alto nutrimento proteico.');
+// var_dump($prod1);
 // var_dump($prod1->getName());
 // var_dump($prod1->getDesc());
 // var_dump($prod1->getPrice());
 // var_dump($prod1->calcFinalPrice(10));
 
-$prod2 = new Product('pappa', 15.80, $cat);
-$prod2->setDesc('Pasto a base di tonno e verdure');
-var_dump($prod2);
+// $prod2 = new Product('pappa', 15.80, $cat);
+// $prod2->setDesc('Pasto a base di tonno e verdure');
+// var_dump($prod2);
 
 // Creo Instanza della Classe Food (che estende Product)
 $food1 = new Food('bastoncini', 17.60, $dog, 'carne di manzo');
@@ -34,6 +34,18 @@ $food1->setIngredients('carne di pollo');
 $food1->setIngredients('carote');
 $food1->setKal(110);
 var_dump($food1);
+
+$food2 = new Food('pappa', 15.80, $cat, 'tonno');
+$food2->setDesc('Pasto a base di tonno e verdure');
+$food2->setIngredients('patate');
+$food2->setIngredients('piselli');
+var_dump($food2);
+
+$food3 = new Food('crocchette', 25.40, $dog, 'spinaci');
+$food3->setDesc('Crocchete vegetali con poche calorie e alto nutrimento proteico.');
+$food3->setIngredients('patate');
+$food3->setIngredients('pomodori');
+var_dump($food3);
 
 ?>
 

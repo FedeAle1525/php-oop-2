@@ -14,7 +14,7 @@ class Category
   protected string $icon;
 
   // COSTRUTTORE
-  function __construct($_name, $_weight)
+  function __construct(string $_name, float $_weight)
   {
     $this->setName($_name);
     $this->setWeight($_weight);

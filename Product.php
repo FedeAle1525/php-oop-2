@@ -15,7 +15,7 @@ class Product
 
 
   // Costruttore
-  function __construct($_name, $_price, $_categ)
+  function __construct(string $_name, float $_price, Category $_categ)
   {
     $this->setName($_name);
     $this->setPrice($_price);

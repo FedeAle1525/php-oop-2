@@ -11,7 +11,7 @@ class Food extends Product
   protected array $ingredients = [];
 
   // COSTRUTTORE
-  function __construct($_name, $_price, $_categ, $_ingredient)
+  function __construct(string $_name, float $_price, Category $_categ, string $_ingredient)
   {
 
     parent::__construct($_name, $_price, $_categ);
