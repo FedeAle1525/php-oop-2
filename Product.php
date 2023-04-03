@@ -44,11 +44,18 @@ class Product
 
   public function setPrice(float $newVal)
   {
-    if ($this->testNegativeNumber($newVal)) {
-      echo 'Product: Inserire un numero positivo';
-    } else {
-      $this->price = $newVal;
-    }
+    // Intercetto l'Eccezione generata dal controllo del Validator per "bypassare" il Fatal Error e stampare un messaggio di errore.
+    // try {
+    //   // Richiamo la Funzione che testa il nuovo valore, creata dentro Validator
+    //   $this->testNegativeNumber($newVal);
+    // } catch (Exception $ex) {
+    //   echo 'Errore: ' . $ex->getMessage();
+    // }
+
+    // Richiamo la Funzione che testa il nuovo valore, creata dentro Validator
+    $this->testNegativeNumber($newVal);
+
+    $this->price = $newVal;
   }
 
   public function setCateg(Category $newVal)

@@ -23,12 +23,18 @@ class Food extends Product
 
   public function setKal(float $newVal)
   {
+    // Intercetto l'Eccezione generata dal controllo del Validator per "bypassare" il Fatal Error e stampare un messaggio di errore.
+    // try {
+    //   // Richiamo la Funzione che testa il nuovo valore, creata dentro Validator
+    //   $this->testNegativeNumber($newVal);
+    // } catch (Exception $ex) {
+    //   echo 'Errore: ' . $ex->getMessage();
+    // }
+
     // Richiamo la Funzione che testa il nuovo valore, creata dentro Validator
-    if ($this->testNegativeNumber($newVal)) {
-      echo "Food: inserire un numero positivo";
-    } else {
-      $this->kal = $newVal;
-    }
+    $this->testNegativeNumber($newVal);
+
+    $this->kal = $newVal;
   }
 
   public function setIngredients(string $newVal)

@@ -3,13 +3,11 @@
 trait Validator
 {
 
-  // Se il numero e' negativo ritorna 'false', se e, positivo 'true'
+  // Funzione che genera un Eccezione se il numro e' negativo
   public function testNegativeNumber($num)
   {
     if ($num < 0) {
-      return true;
-    } else {
-      return false;
+      throw new Exception('Inserire un numero positivo!');
     }
   }
 }

@@ -1,7 +1,10 @@
 <?php
-
+require_once __DIR__ . '/./traits/Validator.php';
 class Category
 {
+  // Utilizzo il Trait 'Validator'
+  use Validator;
+
   protected string $name;
   // Per "breed" si intende la razza o specie di animale
   protected string $breed;
@@ -61,9 +64,18 @@ class Category
 
   public function setWeight(float $newVal)
   {
-    if ($newVal > 0) {
-      $this->weight = $newVal;
-    }
+    // Intercetto l'Eccezione generata dal controllo del Validator per "bypassare" il Fatal Error e stampare un messaggio di errore.
+    // try {
+    //   // Richiamo la Funzione che testa il nuovo valore, creata dentro Validator
+    //   $this->testNegativeNumber($newVal);
+    // } catch (Exception $ex) {
+    //   echo 'Errore: ' . $ex->getMessage();
+    // }
+
+    // Richiamo la Funzione che testa il nuovo valore, creata dentro Validator
+    $this->testNegativeNumber($newVal);
+
+    $this->weight = $newVal;
   }
 
   public function setIcon(string $newVal)

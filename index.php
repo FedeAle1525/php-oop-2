@@ -16,7 +16,7 @@ $cat->setSize('medium');
 // var_dump($cat);
 
 // Creo Istanze della Classe Product
-$prod1 = new Product('crocchette', -25.40, $dog);
+$prod1 = new Product('crocchette', 25.40, $dog);
 $prod1->setDesc('Crocchete vegetali con poche calorie e alto nutrimento proteico.');
 var_dump($prod1);
 // var_dump($prod1->getName());
