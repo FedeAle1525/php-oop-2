@@ -40,6 +40,9 @@ class Food extends Product
   public function setIngredients(string $newVal)
   {
     if ($newVal !== '') {
+
+      $this->testStringLength($newVal, 5, 30);
+
       array_push($this->ingredients, $newVal);
     }
   }

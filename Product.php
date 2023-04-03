@@ -26,20 +26,16 @@ class Product
 
   public function setDesc(string $newVal)
   {
-    if (strlen($newVal) < 80) {
-      $this->desc = $newVal;
-    } else {
-      echo 'Descrizione troppo lunga';
-    }
+    $this->testStringLength($newVal, 5, 80);
+
+    $this->desc = $newVal;
   }
 
   public function setName(string $newVal)
   {
-    if (strlen($newVal) < 50) {
-      $this->name = $newVal;
-    } else {
-      echo 'Nome troppo lungo';
-    }
+    $this->testStringLength($newVal, 5, 50);
+
+    $this->name = $newVal;
   }
 
   public function setPrice(float $newVal)
@@ -91,7 +87,7 @@ class Product
   {
     // Calcolo lo sconto solo se il valore e' compreso tra 0 e 80, altrimento ritorno il prezzo non scontato
     if ($discount < 0 && $discount > 80) {
-      return $this->price;
+      throw new Exception('Inserire una percentuale di sconto valida (compresa tra 0 e 80)');
     } else {
       return ($this->price * (100 - $discount) / 100);
     }

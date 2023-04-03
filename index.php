@@ -32,7 +32,7 @@ var_dump($prod2);
 $food1 = new Food('bastoncini', 17.60, $dog, 'carne di manzo');
 $food1->setIngredients('carne di pollo');
 $food1->setIngredients('carote');
-$food1->setKal(-110);
+$food1->setKal(110);
 var_dump($food1);
 
 ?>

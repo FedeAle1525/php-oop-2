@@ -18,27 +18,30 @@ class Category
   {
     $this->setName($_name);
     $this->setWeight($_weight);
-    $this->setIcon($_name);
   }
 
   // SETTERS
 
   public function setName(string $newVal)
   {
-    if ($newVal === 'cane' || $newVal === 'gatto') {
-      $this->name = $newVal;
-    } else {
-      echo 'Categoria non valida';
-    }
+    // if ($newVal === 'cane' || $newVal === 'gatto') {
+    //   $this->name = $newVal;
+    // } else {
+    //   throw new Exception("Inserire una categoria valida ('cane' o 'gatto')");
+    // }
+
+    $this->testCategoryName($newVal);
+
+    $this->name = $newVal;
+
+    $this->setIcon($newVal);
   }
 
   public function setBreed(string $newVal)
   {
-    if (strlen($newVal) < 50) {
-      $this->breed = $newVal;
-    } else {
-      echo 'Nome troppo lungo';
-    }
+    $this->testStringLength($newVal, 5, 50);
+
+    $this->breed = $newVal;
   }
 
   public function setSize(string $newVal)
@@ -58,7 +61,8 @@ class Category
         break;
 
       default:
-        echo 'Inserire un valore corretto (small, medium, large)';
+        throw new Exception('Inserire una taglia corretta (small, medium, large)');
+        break;
     }
   }
 
@@ -78,8 +82,9 @@ class Category
     $this->weight = $newVal;
   }
 
-  public function setIcon(string $newVal)
+  private function setIcon(string $newVal)
   {
+
     if ($newVal === 'cane') {
       $this->icon = self::$icons[0];
     }
